@@ -1,0 +1,1 @@
+/home/aesp/project/laravel/pelangi/app/views/posts/show.blade.php
