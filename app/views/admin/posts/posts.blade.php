@@ -57,7 +57,7 @@
 									<th>No</th>
 									<th>Title</th>
 									<th>Status</th>
-									<th>Text</th>
+									<!-- <th>Text</th> -->
 									<th>User</th>
 									<th>Updated at</th>
 									<th>Action</th>
@@ -77,7 +77,7 @@
 									<td>{{ $i }}</td>
 									<td>{{ $post->title }}</td>
 									<td>Publish</td>
-									<td>{{ str_limit($post->body, $limit = 30, $end = '...') }}</td>
+									<!-- <td>{{ str_limit($post->body, $limit = 30, $end = '...') }}</td> -->
 									<td>{{ $post->user->email }}</td>
 									<td>{{ $post->updated_at }}</td>
 									<td>

@@ -10,6 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+//link untuk admin login
 Route::group(array('prefix'=>'admin'), function(){
 	Route::get('login', array('as' => 'admin.login', 'uses' => 'AdminAuthController@getLogin'));
 	Route::post('login', array('as' => 'admin.login.post', 'uses' => 'AdminAuthController@postLogin'));
@@ -19,6 +20,7 @@ Route::group(array('prefix'=>'admin'), function(){
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function(){
 	// Route::resource('/', 'AdminPostsController');
+	//link untuk admin posts
 	Route::get('index', array('as'=> 'admin.posts.index', 'uses'=>'AdminPostsController@index'));
 	Route::get('edit/{id}', array('as'=> 'admin.posts.edit', 'uses'=>'AdminPostsController@edit'));
 	Route::post('update/{id}', array('as'=> 'admin.posts.update', 'uses'=>'AdminPostsController@update'));
@@ -30,7 +32,26 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function(){
 	Route::get('message', array('as'=> 'admin.posts.message', 'uses'=>'AdminPostsController@message'));
 	Route::get('user', array('as'=> 'admin.posts.user', 'uses'=>'AdminPostsController@user'));
 	Route::get('setting', array('as'=> 'admin.posts.setting', 'uses'=>'AdminPostsController@setting'));
+
+	//link untuk admin kategori
+	Route::group(array('prefix'=>'category', 'except'=>'show'), function(){
+
+	// Route::resource('/', 'AdminCategory');	
+		Route::get('/', array('as'=>'admin.category.index', 'uses'=>'AdminCategory@index'));
+		Route::get('create', array('as'=>'admin.category.create', 'uses'=>'AdminCategory@create'));
+		Route::post('store', array('as'=>'admin.category.store', 'uses'=>'AdminCategory@store'));
+	});
+	//link untuk admin user
+	Route::group(array('prefix'=>'user'), function(){
+		Route::resource('/', 'AdminUser');
+	});
 });
+
+Route::get('/', function(){
+	return "home";
+});
+
+
 
 
 // Route::resource('imgs', 'ImgsController');

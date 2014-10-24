@@ -9,7 +9,7 @@ class ImgsTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 100) as $index)
+		foreach(range(1, 50) as $index)
 		{
 			Img::create([
 				'img_name' => 'img'.rand(1,50),

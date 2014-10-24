@@ -14,4 +14,8 @@ class Post extends \Eloquent {
 	public function user(){
 		return $this->belongsTo('User');
 	}
+	/*
+	public function kategori(){
+		return $this->belongsTo('Kategori');
+	}*/
 }

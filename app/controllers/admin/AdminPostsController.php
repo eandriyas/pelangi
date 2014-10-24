@@ -7,14 +7,18 @@ class AdminPostsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	//fungsi untuk menampilkan semua post
 	public function posts(){
 		// $posts = Post::all();
+		// fungsi untuk menampilkan semua post dari model Post dan dibuat paginate 20
 		$posts = Post::with('User')->paginate(20);
+		//menampilkan hasil view database ke view posts.blade.php
 		return View::make('admin.posts.posts', compact('posts'));
 	}
-	public function category(){
-		return View::make('admin.posts.category');
-	}
+	// public function category(){
+		
+	// }
+	//fungsi untuk menampilkan pesan
 	public function message(){
 		return View::make('admin.posts.message');
 	}
@@ -24,11 +28,13 @@ class AdminPostsController extends \BaseController {
 	public function setting(){
 		return View::make('admin.posts.setting');
 	}
-
+	// fungsi untuk membuat halaman index dari menu admin
 	public function index()
 	{
+		// menampilkan semua isi database model Post
 		$posts = Post::all();
-
+		
+		// menampilkan view untuk index posts
 		return View::make('admin.posts.index', compact('posts'));
 	}
 
